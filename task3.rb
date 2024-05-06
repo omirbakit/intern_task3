@@ -19,7 +19,7 @@ elsif ARGV.count.even?
   puts "Number of arguments should be odd number \nYou entered #{ARGV.count} arguments"
 
 elsif duplicates.size > 0
-  # p duplicates.uniq
+
   puts  "Do not duplicate arguments.\nYou entered '#{duplicates.uniq.join}' more than one times."
 
 else duplicates.size == 0 && ARGV.count >= 3 && ARGV.count.odd?
@@ -49,7 +49,7 @@ else duplicates.size == 0 && ARGV.count >= 3 && ARGV.count.odd?
       puts "Computer move: #{comp_choice}"
 
       step_count = ARGV.count
-      # p step_count
+      
       formula = ((user_choice.to_i - 1) - ARGV.index(comp_choice) + step_count + step_count / 2) % step_count - step_count / 2
 
       if formula == 1
@@ -104,22 +104,10 @@ else duplicates.size == 0 && ARGV.count >= 3 && ARGV.count.odd?
         end
       end
       puts table
-    elsif user_choice.to_i == 0
+    else user_choice.to_i == 0
       puts "Bye"
       break
     end
     puts "HMAC key:#{key}"
   end
 end
-# check_choice = STDIN.gets.chomp
-# mac2 = OpenSSL::HMAC.hexdigest('sha256', key, check_choice)
-# p hmac == mac2
-# table = Terminal::Table.new do |t|
-#   t << ["v PC\\User >", "#{ARGV[0]}", "#{ARGV[1]}", "#{ARGV[2]}"]
-#   t << :separator
-#   t.add_row ["#{ARGV[0]}", "Draw", "Win", "Lose"]
-#   t.add_separator
-#   t.add_row ["#{ARGV[1]}", "Lose", "Draw", "Win"]
-#   t.add_separator
-#   t.add_row ["#{ARGV[2]}", "Win", "Lose", "Draw"]
-# end
